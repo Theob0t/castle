@@ -16,5 +16,5 @@ You will also see any lint errors in the console.
 
 You can find all the scripts on **relais-chateaux-app/src**. <br>
 There are two files : <br>
-- **1** : is the script to scrap Michelin website (*scrapingMichelin.js*) <br>
-- **2** :is the script to get the final results (*relais.js*)
+- **1** is the script to scrap Michelin website (*scrapingMichelin.js*) <br>
+- **2** is the script to get the final results (*relais.js*)
