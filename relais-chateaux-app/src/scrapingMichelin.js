@@ -13,7 +13,7 @@ function getURLs(){
 		URLs[i-1] = 'https://restaurant.michelin.fr/restaurants/france/restaurants-1-etoile-michelin/restaurants-2-etoiles-michelin/restaurants-3-etoiles-michelin/page-'+i;
 			}
 		//console.log(URLs);
-	//console.log(URLs[0]);		
+	//console.log(URLs[0]);		  
 	}
 
 

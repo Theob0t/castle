@@ -1,199 +1,48 @@
-# Castle
+# Web-Application :computer: Final-Report :memo:
+Create a Web App using NodeJS & React : List the best rates - for each Weekend - for France located Relais &amp; Châteaux with starred restaurants
 
-> Sleep well with Relais & Châteaux
+## Scrap the web with nodeJS and Cheerio
 
-![castle](https://media.relaischateaux.com/public/hash/919a5432f068d38d0b14b87e52fc27ae66c84376)
+- **1ère étape** : Scraper le site michelin pour avoir le noms de tous les restaurants étoilés : *scrapingMichelin.js* => *restaurants.json*
+- **2ème étape** : Récupérer les urls de chaque hotel Relais & Chateau en France pour récupérer les informations nécessaires *scraping() relais.js* => *urls_hotels.json*
+- **3ème étape** : Définir si oui ou non l'hôtel possède un restaurant étoilé en comparant les noms des restaurants de chaque hotel avec la liste des restaurants étoilés Michelin 
+(PB: difficile de faire correspondre le nom du restaurant sur R&C et Michelin car les noms varient parfois)
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+> Changement de stratégie : 
 
-- [🐣 Introduction](#-introduction)
-- [🎯 Objectives](#-objectives)
-- [🏃‍♀️ Steps to do](#%E2%80%8D-steps-to-do)
-  - [Stack](#stack)
-- [👩‍💻 Just tell me what to do](#%E2%80%8D-just-tell-me-what-to-do)
-- [🏃‍♀️ Example of Steps to do](#%E2%80%8D-example-of-steps-to-do)
-  - [Investigation](#investigation)
-    - [Hotels from Relais & Châteaux](#hotels-from-relais--ch%C3%A2teaux)
-    - [Michelin Restaurant](#michelin-restaurant)
-    - [The web application](#the-web-application)
-  - [Server-side with Node.js](#server-side-with-nodejs)
-    - [require('castle')](#requirecastle)
-    - [require('michelin')](#requiremichelin)
-  - [Client-side with React](#client-side-with-react)
-  - [Notification (bonus)](#notification-bonus)
-- [Don't forget](#dont-forget)
-- [Licence](#licence)
+#### SCRAPING ON RELAIS&CHATEAUX (NodeJS)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+- **1ère étape** : Récupérer les urls de chaque hotel Relais & Chateau en France: *scraping() relais.js*
 
-## 🐣 Introduction
+- **2ème étape** : Scraper les urls et définir si le restaurant est étoilé (recherche dans le titre exemple: "Maison Decoret, Hôtel de luxe et Restaurant gastronomique étoilé en ville 1 étoile Vichy – Relais & Châteaux" ): *isStars() relais.js*
 
-## 🎯 Objectives
+- **3ème étape** : Récupérer les prix de chaque weekend du mois de Mars pour tous les hotels avec restaurant étoilé : *getPrice() relais.js*
+Pour cela : 
 
-**List the best rates - for each Weekend - for France located Relais & Châteaux with starred restaurants**
+- **4ème étape** : On doit fetch une requête : "https://www.relaischateaux.com/fr/popin/availability/check?month=2019-3&idEntity=22926"%7C%7CSTD&pax=2&room=1" et on a besoin du *'idEntity'* propre à chaque hotel. Pour cela nous avons créé la fonction *getidEntity()* => idEntity fetch chaque requête de chaque hotel.
 
-## 🏃‍♀️ Steps to do
+- **5ème étape** : Trouver le meilleur prix pour un weekend en Mars 2019 dans un des hotels Relais & Chateaux avec restaurant étoilé Michelin : *getBest() relais.js*
 
-Create a connection between [relaischateaux.com](https://www.relaischateaux.com), [restaurant.michelin.fr](https://restaurant.michelin.fr/) and the end-user.
+- **6ème étape** : Récupérez les informations importantes pour ce meilleur prix : Nom de l'hotel, date et prix.
 
-### Stack
+Au final, nous utilisons un fichier JSON contenant 12 hôtels Relais & Chateaux ayant un restaurant étoilé Michelin, leurs prix pour chaque weekend de Mars (nuit du Samedi au Dimanche) et leur disponibilité.
 
-```
-Node.js + React + Material Design (mdl, bootstrap, foundation...) + ES6 [+ docker + redis ...]
-```
+PS: Pour récupérer les prix au mois de Mars de chaque hôtel en temps réel, il faudrait que *getPrice()* soit appelé à chaque fois que l'application est lancée. La fonction prend environ 10 min à générer le *Marc_WE.json*. Pour des raisons d'efficacité, la fonction à générer un json le 15 Février 2019 avec les prix et disponibilitsé à ce jour et n'ai plus appelée dans le programme. Afin que l'application fonctionne correctement nous utilisons ce fichier.json. Les données ne sont donc pas scrapper en temps réel.   
 
-## 👩‍💻 Just tell me what to do
+ 
+## Build a Web App with ReactJS and create-react-app 
 
-1. Fork the project via `github`
+- **1ère étape**: Création de l'application et de l'environnement de développement
+- **2ème étape**: Utilisation des fonctions clés et importation des json générés précédemment
+- **3ème étape**: Design en html/css de la page web de l'application
 
-![fork](./fork.png)
+## FINAL RESULT :
 
-1. Clone your forked repository project `https://github.com/YOUR_USERNAME/castle`
+- We scrap all prices for each hostels with a stared restaurant for every weekend of March.
+- We store the results into a json file called *March_WE.json*.
+- We print the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with stared restaurant and their price for the weekends of March.
 
-```sh
-❯ cd /path/to/workspace
-❯ git clone git@github.com:YOUR_USERNAME/castle.git
-```
+![Screenshot](Capture.JPG)
 
-1. **Do things**
 
-1. commit your different modifications:
 
-```sh
-❯ cd /path/to/workspace/castle
-❯ git add -A && git commit -m "feat(michelin): get list of starred restaurants"
-```
-
-([why following a commit message convention?](https://www.conventionalcommits.org)
-
-1. Don't forget to commit early, commit often and push often
-
-```sh
-❯ git push origin master
-```
-
-**Note**: if you catch an error about authentication, [add your ssh to your github profile](https://help.github.com/articles/connecting-to-github-with-ssh/).
-
-1. If you need some helps on git commands, read [git - the simple guide](http://rogerdudler.github.io/git-guide/)
-
-## 🏃‍♀️ Example of Steps to do
-
-### Investigation
-
-#### Properties from Relais & Châteaux
-
-1. How it works https://www.relaischateaux.com ?
-1. How to get the list of `Hotel + restaurant`
-1. How to identify the restaurant(s) name ?
-1. How to compute the booking price for all weekend ? for a given weekend?
-
-etc ...
-
-Some things to do:
-
-1. Browse the website
-1. Check how that you can get list of properties: api etc.... (check network activity)
-1. Check how that you can get list of restaurants for a given property: api etc.... (check network activity)
-1. define the JSON schema for Property
-
-etc ...
-
-Example of Property: https://www.relaischateaux.com/fr/france/mercues-lot-mercues
-
-#### Michelin Restaurant
-
-1. How it works https://restaurant.michelin.fr
-1. What are the given properties for a starred restaurant: name, adress, town, stars, chef... ?
-1. ...
-
-Some things to do:
-
-1. Browse the website
-1. define the JSON schema for a restaurant
-1. Check how that you can get list of starred restaurants: api etc.... (check network activity)
-
-etc...
-
-Example of Restaurant: https://restaurant.michelin.fr/2akhln2/lauberge-des-glazicks-plomodiern
-
-
-#### The web application
-
-Some things to do:
-
-1. How to create a connection between Relais & Châteaux and the starred restaurant?
-
-### Server-side with Node.js
-
-#### require('castle')
-
-Create a module called `castle` that returns the list of best rates for all Weekends for each Property
-
-```js
-const castle = require('castle');
-...
-const property = {...};
-
-
-const properties = castle.getProperties();
-const prices = castle.getPrices(property);
-
-...
-```
-
-Some things to do:
-
-1. create the calls (api, http) to get the Property page
-1. get the restaurants name (by scraping or decoding api response)
-1. check if the restaurant is starred.
-1. get the price by Weekend (by scraping or decoding api response)
-
-#### require('michelin')
-
-Create a module called `michelin` that return the list of restaurant
-
-```js
-const michelin = require('michelin');
-
-const starred = michelin.get();
-
-...
-```
-
-Some things to do:
-
-1. scrape list of France located starred restaurants
-1. store the list into JSON file, nosql database (like redis, mongodb...)
-1. create a node module that returns the list
-
-### Client-side with React
-
-MVP to do:
-
-1. **For each Weekend, list best rates for France located Relais & Châteaux with starred restaurants**
-
-Next features:
-
-2. Add filters:
-  * filtering by name
-  * sorting by stars
-  * sorting by price
-  * sorting by distance
-
-3. Bonus: Display on a map only Relais & Châteaux with starred restaurants.
-
-### Notification (bonus)
-
-Some things to do:
-
-1. Notify me (discord or slack) a new best rate price for any Relais & Châteaux with starred restaurant.
-
-## Don't forget
-
-**Focus on codebase and UX/UI**
-
-## Licence
-
-[Uncopyrighted](http://zenhabits.net/uncopyright/)

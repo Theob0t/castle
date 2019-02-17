@@ -1,0 +1,41 @@
+.App {
+  height: 100vh;
+  width: 100 vw;
+  color: #282c34;
+  margin: 5% 15%;
+  
+}
+
+.text {
+  text-align: center;
+}
+
+.line {
+  display: flex;
+  border: 1px solid #282c34;
+  border-radius: 2px;
+}
+
+.name {
+
+  flex:2;
+  flex-wrap: wrap;
+  text-align: center;
+
+}
+
+.price {
+
+  flex:1;
+  flex-wrap: wrap;
+  text-align: center;
+  
+}
+
+.date {
+
+  flex:1;
+  flex-wrap: wrap;
+  text-align: center;
+  
+}
