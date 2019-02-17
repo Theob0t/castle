@@ -23,7 +23,7 @@ class App extends Component {
             <p>{name}</p>
           </div>
           <div className = 'date'>
-            <div><p>{"Samedi "+ day + " Mars 2019"}</p></div>
+            <div><p>{"Saturday "+ day + "th March 2019"}</p></div>
           </div>
           <div className = 'price'>
             <div><p>{price}</p></div>
@@ -44,7 +44,7 @@ class App extends Component {
       let days = el.day.map(day => {
         //console.log(day);
         return (
-          <p>{"Samedi "+ day + " Mars 2019"}</p>
+          <p>{"Saturday "+ day + "th March 2019"}</p>
         )
       })
       let prices = el.prices.map(price => {
@@ -81,7 +81,7 @@ class App extends Component {
         <h1 className="text">WEEKEND OF MARCH</h1>
         <h4 className="text">BEST OPTION(S)</h4>
           {this.getBest()}
-        <h4 className="text">ALL HOTELS WITH MICHELIN STAR RESTAURANT</h4>  
+        <h4 className="text">ALL HOTELS WITH MICHELIN STARRED RESTAURANT</h4>  
           {this.getAll()}
 
         </div>
