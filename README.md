@@ -42,7 +42,7 @@ PS: Pour récupérer les prix au mois de Mars de chaque hôtel en temps réel, i
 - We store the results into a json file called *March_WE.json*.
 - We print the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with stared restaurant and their price for the weekends of March.
 
-![Screenshot](Capture.JPG)
+![Screenshot](./relais-chateaux-app/Capture.JPG)
 
 
 
