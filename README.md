@@ -15,7 +15,7 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 - **3rd step** : Scrap each url for every Relais & Chateau hostel in France to get the full name-description of the hostel and know if it includes a starred restaurant (exemple: "Maison Decoret, Hôtel de luxe et Restaurant gastronomique étoilé en ville **1 étoile** Vichy – Relais & Châteaux" ): *isStars() relais.js*
 
 - **4th step** : Fetch the prices of each weekend of March for every hostels with starred restaurant : *getPrice() relais.js*
->**TO DO THAT**
+>**TO DO THAT :**
 
 - **5th step** : We need to fetch a request for each hotel: "https://www.relaischateaux.com/fr/popin/availability/check?month=2019-3&idEntity=22926"%7C%7CSTD&pax=2&room=1" and to change from one hotel to another we need to change the *'idEntity'* specific to each hostel. To get them, we create the *getidEntity()* function that return the idEntity of each hostel.
 
