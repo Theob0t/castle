@@ -8,14 +8,14 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 - **3rd step** : Compare name of restaurant in *restaurants.json* with name of restaurant in each url of Relais & Chateau website and define if the restaurant of this hotel is a starred restaurant.
 (PB: It is harder than expected to match names of the restaurants from the differents website because they can vary a bit)
 
-> Change of strategy : 
+> **Change of strategy :** 
 
 #### SCRAPING ON RELAIS&CHATEAUX (NodeJS)
 
 - **3rd step** : Scrap each url for every Relais & Chateau hostel in France to get the full name-description of the hostel and know if it includes a starred restaurant (exemple: "Maison Decoret, Hôtel de luxe et Restaurant gastronomique étoilé en ville **1 étoile** Vichy – Relais & Châteaux" ): *isStars() relais.js*
 
 - **4th step** : Fetch the prices of each weekend of March for every hostels with starred restaurant : *getPrice() relais.js*
->**_TO DO THAT_**
+>**TO DO THAT**
 
 - **5th step** : We need to fetch a request for each hotel: "https://www.relaischateaux.com/fr/popin/availability/check?month=2019-3&idEntity=22926"%7C%7CSTD&pax=2&room=1" and to change from one hotel to another we need to change the *'idEntity'* specific to each hostel. To get them, we create the *getidEntity()* function that return the idEntity of each hostel.
 
@@ -23,9 +23,9 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 
 - **7th step** : Fetch the important information of the best price : name of the hostel, date of availability and price.
 
-Au final, nous utilisons un fichier JSON contenant 12 hôtels Relais & Châteaux ayant un restaurant étoilé Michelin, leurs prix pour chaque week-end de Mars (nuit du Samedi au Dimanche) et leur disponibilité.
+All in all, we use the JSON file containing the 12 Relais & Châteaux hostel with a starred restaurant, their prices for each weekend of March (the Saturday night) and their availability.
 
-PS: Pour récupérer les prix au mois de Mars de chaque hôtel en temps réel, il faudrait que *getPrice()* soit appelé à chaque fois que l'application est lancée. La fonction prend environ 10 min à générer le *Marc_WE.json*. Pour des raisons d'efficacité, la fonction à générer un json le 15 Février 2019 avec les prix et disponibilité à ce jour et n'ai plus appelée dans le programme. Afin que l'application fonctionne correctement nous utilisons ce fichier.json. Les données ne sont donc pas scrapper en temps réel.   
+PS: To get all prices of March for every hostel in real time, *getPrice()* must be called before starting the app or be called continuously. That way, we could have displayed the most accurate and up-to-date list. But this *getPrice()* function takes around 10 min to generate the *March_WE.json* file. In order to avoid losing time while bulding the app, we ran the function once and used the json file created the 15th February 2019.
 
  
 ## Build a Web App with ReactJS and create-react-app 
