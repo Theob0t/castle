@@ -8,7 +8,7 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 - **3rd step** : Compare name of restaurant in *restaurants.json* with name of restaurant in each url of Relais & Chateau website and define if the restaurant of this hotel is a starred restaurant.
 (PB: It is harder than expected to match names of the restaurants from the differents website because they can vary a bit)
 
-> **Change of strategy :** 
+> **CHANGE OF STATEGY :** 
 
 #### SCRAPING ON RELAIS&CHATEAUX (NodeJS)
 
@@ -30,15 +30,15 @@ PS: To get all prices of March for every hostel in real time, *getPrice()* must 
  
 ## Build a Web App with ReactJS and create-react-app 
 
-- **1ère étape**: Création de l'application et de l'environnement de développement
-- **2ème étape**: Utilisation des fonctions clé et importation des json générés précédemment
-- **3ème étape**: Design en html/css de la page web de l'application
+- **1st step**: Create the web app with create-react-app and deploy the development environment
+- **2nd step**: Use the key functions of *relais.js* and import the json files
+- **3rd step**: Design the page of the web application with html/css
 
 ## FINAL RESULT :
 
-- We scrap all prices for each hostels with a stared restaurant for every weekend of March.
-- We store the results into a json file called *March_WE.json*.
-- We print the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with stared restaurant and their price for the weekends of March.
+- We scraped all prices for each hostels with a stared restaurant for every weekend of March.
+- We stored the results into a json file called *March_WE.json*.
+- We displayed the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with stared restaurant and their price for the weekends of March.
 
 ![Screenshot](./relais-chateaux-app/Capture.JPG)
 
