@@ -38,9 +38,7 @@ PS: To get all prices of March for every hostel in real time, *getPrice()* must 
 
 - We scraped all prices for each hostel with a stared restaurant for every weekend of March.
 - We stored the results into a json file called *March_WE.json*.
-- We displayed the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all 
-
-with stared restaurant and their price for the weekends of March.
+- We displayed the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with a stared restaurant and their price for the weekends of March.
 
 ![Screenshot](./relais-chateaux-app/Capture.JPG)
 
