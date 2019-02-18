@@ -3,27 +3,25 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 
 ## Scrap the web with nodeJS and Cheerio
 
-- **1ère étape** : Scraper le site Michelin pour avoir le nom de tous les restaurants étoilés : *scrapingMichelin.js* => *restaurants.json*
-- **2ème étape** : Récupérer les urls de chaque hôtel Relais & Chateau en France pour récupérer les informations nécessaires *scraping() relais.js* => *urls_hotels.json*
-- **3ème étape** : Définir si oui ou non l'hôtel possède un restaurant étoilé en comparant les noms des restaurants de chaque hôtel avec la liste des restaurants étoilés Michelin 
-(PB: difficile de faire correspondre le nom du restaurant sur R&C et Michelin car les noms varient parfois)
+- **1st step** : Scrap Michelin website to get names of all starred restaurants : *scrapingMichelin.js* => *restaurants.json*
+- **2nd step** : Scrap Relais & Château website to get the url of each Relais & Chateau hostel in France *scraping() relais.js* => *urls_hotels.json*
+- **3rd step** : Compare name of restaurant in *restaurants.json* with name of restaurant in each url of Relais & Chateau website and define if the restaurant of this hotel is a starred restaurant.
+(PB: It is harder than expected to match names of the restaurants from the differents website because they can vary a bit)
 
-> Changement de stratégie : 
+> Change of strategy : 
 
 #### SCRAPING ON RELAIS&CHATEAUX (NodeJS)
 
-- **1ère étape** : Récupérer les urls de chaque hotel Relais & Chateau en France: *scraping() relais.js*
+- **3rd step** : Scrap each url for every Relais & Chateau hostel in France to get the full name-description of the hostel and know if it includes a starred restaurant (exemple: "Maison Decoret, Hôtel de luxe et Restaurant gastronomique étoilé en ville **1 étoile** Vichy – Relais & Châteaux" ): *isStars() relais.js*
 
-- **2ème étape** : Scraper les urls et définir si le restaurant est étoilé (recherche dans le titre exemple: "Maison Decoret, Hôtel de luxe et Restaurant gastronomique étoilé en ville 1 étoile Vichy – Relais & Châteaux" ): *isStars() relais.js*
+- **4th step** : Fetch the prices of each weekend of March for every hostels with starred restaurant : *getPrice() relais.js*
+>**_TO DO THAT_**
 
-- **3ème étape** : Récupérer les prix de chaque week-end du mois de Mars pour tous les hotels avec restaurant étoilé : *getPrice() relais.js*
-Pour cela : 
+- **5th step** : We need to fetch a request for each hotel: "https://www.relaischateaux.com/fr/popin/availability/check?month=2019-3&idEntity=22926"%7C%7CSTD&pax=2&room=1" and to change from one hotel to another we need to change the *'idEntity'* specific to each hostel. To get them, we create the *getidEntity()* function that return the idEntity of each hostel.
 
-- **4ème étape** : On doit fetch une requête : "https://www.relaischateaux.com/fr/popin/availability/check?month=2019-3&idEntity=22926"%7C%7CSTD&pax=2&room=1" et on a besoin du *'idEntity'* propre à chaque hotel. Pour cela, nous avons créé la fonction *getidEntity()* => idEntity fetch chaque requête de chaque hotel.
+- **6th step** : Find the best price for each weekend of March 2019 : *getBest() relais.js* 
 
-- **5ème étape** : Trouver le meilleur prix pour un weekend en Mars 2019 dans un des hotels Relais & Chateaux avec restaurant étoilé Michelin : *getBest() relais.js*
-
-- **6ème étape** : Récupérez les informations importantes pour ce meilleur prix : Nom de l'hotel, date et prix.
+- **7th step** : Fetch the important information of the best price : name of the hostel, date of availability and price.
 
 Au final, nous utilisons un fichier JSON contenant 12 hôtels Relais & Châteaux ayant un restaurant étoilé Michelin, leurs prix pour chaque week-end de Mars (nuit du Samedi au Dimanche) et leur disponibilité.
 
