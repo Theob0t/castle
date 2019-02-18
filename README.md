@@ -5,7 +5,7 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 
 - **1st step** : Scrap Michelin website to get names of all starred restaurants : *scrapingMichelin.js* => *restaurants.json*
 - **2nd step** : Scrap Relais & Château website to get the url of each Relais & Chateau hostel in France *scraping() relais.js* => *urls_hotels.json*
-- **3rd step** : Compare name of restaurant in *restaurants.json* with name of restaurant in each url of Relais & Chateau website and define if the restaurant of this hotel is a starred restaurant.
+- **3rd step** : Compare the name of a restaurant in *restaurants.json* with the name of the restaurant in each url of Relais & Chateau website and define if the restaurant of this hotel is a starred restaurant.
 (PB: It is harder than expected to match names of the restaurants from the differents website because they can vary a bit)
 
 > **CHANGE OF STATEGY :** 
@@ -25,7 +25,7 @@ Create a Web App using NodeJS & React : List the best rates - for each Weekend -
 
 All in all, we use the JSON file containing the 12 Relais & Châteaux hostel with a starred restaurant, their prices for each weekend of March (the Saturday night) and their availability.
 
-PS: To get all prices of March for every hostel in real time, *getPrice()* must be called before starting the app or be called continuously. That way, we could have displayed the most accurate and up-to-date list. But this *getPrice()* function takes around 10 min to generate the *March_WE.json* file. In order to avoid losing time while bulding the app, we ran the function once and used the json file created the 15th February 2019.
+PS: To get all prices of March for every hostel in real time, *getPrice()* must be called before starting the app or be called continuously. That way, we could have displayed the most accurate and up-to-date list. But this *getPrice()* function takes around 10 min to generate the *March_WE.json* file. In order to avoid losing time while building the app, we ran the function once and used the json file created the 15th February 2019.
 
  
 ## Build a Web App with ReactJS and create-react-app 
@@ -36,9 +36,11 @@ PS: To get all prices of March for every hostel in real time, *getPrice()* must 
 
 ## FINAL RESULT :
 
-- We scraped all prices for each hostels with a stared restaurant for every weekend of March.
+- We scraped all prices for each hostel with a stared restaurant for every weekend of March.
 - We stored the results into a json file called *March_WE.json*.
-- We displayed the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all hostels with stared restaurant and their price for the weekends of March.
+- We displayed the results into tabs threw a web application where we can find the best rate for March 2019 and a summary of all 
+
+with stared restaurant and their price for the weekends of March.
 
 ![Screenshot](./relais-chateaux-app/Capture.JPG)
 
